@@ -109,13 +109,30 @@
             <div class="tab-content">
                 <div id="sectionA" class="tab-pane active">
                     <div class="innter-form">
-                        <form class="sa-innate-form" method="post">
+                        <form class="sa-innate-form" method="post" action="{{ route('login') }}">
+                            @csrf
                             <label>Email Address</label>
-                            <input type="text" name="username">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                             <label>Password</label>
-                            <input type="password" name="password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                             <button type="submit">Sign In</button>
-                            <a href="">Forgot Password?</a>
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
                         </form>
                     </div>
                     <div class="social-login">
@@ -130,13 +147,36 @@
                 </div>
                 <div id="sectionB" class="tab-pane fade">
                     <div class="innter-form">
-                        <form class="sa-innate-form" method="post">
+                        <form class="sa-innate-form" method="post" action="{{ route('register') }}" enctype="multipart/form-data">
+                            @csrf
                             <label>Name</label>
-                            <input type="text" name="username">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                             <label>Email Address</label>
-                            <input type="text" name="username">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                             <label>Password</label>
-                            <input type="password" name="password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+                            <label>Confirm Password</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
                             <button type="submit">Join now</button>
                             <p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
                         </form>
