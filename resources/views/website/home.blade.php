@@ -1,4 +1,4 @@
-@extends('layout.header+footer')
+@extends('layouts.frontend')
 @section('content')
     <!--Carousel Wrapper-->
     <div id="carousel-example-1z" class="carousel slide mt-2" data-ride="carousel">
@@ -102,6 +102,14 @@
     <div class="col-md-12 mt-2" style="border:1px solid yellow">
         <h5 class="text-center text-primary mt-2 text-uppercase" style="padding: 5px"><span style="background-color: #ffebcc">Sign Up/Login</span></h5>
         <div class="form-body">
+            @if($errors->any())
+                @foreach($errors->all() as $err)
+                    <div class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>{{$err}}</strong>
+                    </div>
+                @endforeach
+            @endif
             <ul class="nav nav-tabs final-login">
                 <li class="active bg-warning" style="padding: 5px"><a data-toggle="tab" href="#sectionA"><b>Sign In</b></a></li>
                 <li class="bg-info" style="padding: 5px"><a data-toggle="tab" href="#sectionB"><b style="color: black">Join us!</b></a></li>
