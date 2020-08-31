@@ -23,7 +23,10 @@
 
         <ul class="nav navbar-nav">
             <li class="active"><a>User Profile</a></li>
-            </ul>
+            <li><a href="">My Account</a></li>
+            <li><a href="">My Order</a></li>
+            <li><a href="">My Credit</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">{{\Illuminate\Support\Facades\Auth::user()->name}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -31,9 +34,7 @@
                         <form method="post" action="{{route('logout')}}" id="logout-form" style="display: none">
                             @csrf
                         </form>
-
                     </li>
-
                 </ul>
             </li>
         </ul>
@@ -66,10 +67,7 @@
                     <input class="form-control" type="text" name="phone" value="{{\Illuminate\Support\Facades\Auth::user()->phone}}" id="phone">
                 </div>
 
-                <div class="form-group">
-                    <label for="district">District</label>
-                    <input class="form-control" type="text" name="district" value="{{\Illuminate\Support\Facades\Auth::user()->district}}" id="district">
-                </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Update</button>
