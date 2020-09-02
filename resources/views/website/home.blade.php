@@ -13,31 +13,31 @@
         <div class="carousel-inner" role="">
             <!--First slide-->
             <div class="carousel-item active">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+                <img class="d-block w-100" src="{{asset('files/imagesWEB/titan.jpg')}}"
                      alt="First slide">
                 <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>We had such a great time in LA!</p>
+                    <h3>Titan</h3>
+                    <p>Simple but elegant</p>
                 </div>
             </div>
             <!--/First slide-->
             <!--Second slide-->
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+                <img class="d-block w-100" src="{{asset('files/imagesWEB/redjuta.jpg')}}"
                      alt="Second slide">
                 <div class="carousel-caption">
-                    <h3>Newyork</h3>
-                    <p>We had such a great time in LA!</p>
+                    <h3>Nike</h3>
+                    <p>Live in fashion</p>
                 </div>
             </div>
             <!--/Second slide-->
             <!--Third slide-->
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                <img class="d-block w-100"  src="{{asset('files/imagesWEB/bluejuta.jpg')}}"
                      alt="Third slide">
                 <div class="carousel-caption">
-                    <h3>washington</h3>
-                    <p>We had such a great time in LA!</p>
+                    <h3>Vans</h3>
+                    <p>Following the wing</p>
                 </div>
             </div>
             <!--/Third slide-->
@@ -59,15 +59,15 @@
 
     <!-----Cat service start---->
     <div class="col-md-12 mt-3 mb-3" style="border-bottom: 1px solid whitesmoke">
-        <h5 class="text-center text-primary mt-2 text-uppercase" style="padding: 5px"><span style="background-color: #ffebcc">Cat Service</span></h5>
+        <h5 class="text-center text-primary mt-2 text-uppercase" style="padding: 5px"><span style="background-color: #fed03d;color: navy">Cat Service</span></h5>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="square"></div>
-                        <h5 class="card-title">Cat WholeSale</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the title and make up the bulk of the content.</p>
+                        <h5 class="card-title">Cat User</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Pick your product</h6>
+                        <p class="card-text">Here Cat users choose their product and buy it.</p>
                         <a href="#!" class="card-link">link</a>
                     </div>
                 </div>
@@ -76,9 +76,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="triangle-up"></div>
-                        <h5 class="card-title">Cat BuYer</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the title and make up the bulk of the content.</p>
+                        <h5 class="card-title">Cat Admin</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Seek help to Admin</h6>
+                        <p class="card-text">Cat Admins are always support users to make inquiry about their product.</p>
                         <a href="#!" class="card-link">link</a>
                     </div>
                 </div>
@@ -99,8 +99,11 @@
     <!-----/Cat service end---->
 
     <!-----Login/registration start----->
-    <div class="col-md-12 mt-2" style="border:1px solid yellow">
+    <div class="container mt-2">
         <h5 class="text-center text-primary mt-2 text-uppercase" style="padding: 5px"><span style="background-color: #ffebcc">Sign Up/Login</span></h5>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 col-md-offset-4" style="border: 1px solid wheat">
         <div class="form-body">
             @if($errors->any())
                 @foreach($errors->all() as $err)
@@ -111,8 +114,8 @@
                 @endforeach
             @endif
             <ul class="nav nav-tabs final-login">
-                <li class="active bg-warning" style="padding: 5px"><a data-toggle="tab" href="#sectionA"><b>Sign In</b></a></li>
-                <li class="bg-info" style="padding: 5px"><a data-toggle="tab" href="#sectionB"><b style="color: black">Join us!</b></a></li>
+                <li id="tab1" class="active bg-warning login-shadow" style="padding: 5px"><a data-toggle="tab" href="#sectionA"><b>Sign In</b></a></li>
+                <li id="tab2" class="bg-info " style="padding: 5px"><a data-toggle="tab" href="#sectionB"><b style="color: black">Join us!</b></a></li>
             </ul>
             <div class="tab-content">
                 <div id="sectionA" class="tab-pane active">
@@ -143,14 +146,18 @@
                             @endif
                         </form>
                     </div>
-                    <div class="social-login">
-                        <p>- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - - </p>
-                        <ul>
-                            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
-                        </ul>
+                    <div class="col">
+                        <a href="#" class="fb btnn">
+                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                        </a>
+                        <a href="#" class="twitter btnn">
+                            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                        </a>
+                        <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
+                            </i> Login with Google+
+                        </a>
                     </div>
+
                     <div class="clearfix"></div>
                 </div>
                 <div id="sectionB" class="tab-pane fade">
@@ -186,19 +193,25 @@
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
                             <button type="submit">Join now</button>
-                            <p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
+                            <p>By clicking Join now, you agree to Cat Dealer User Agreement, Privacy Policy, and Cookie Policy.</p>
                         </form>
                     </div>
-                    <div class="social-login">
-                        <p>- - - - - - - - - - - - - Register With - - - - - - - - - - - - - </p>
-                        <ul>
-                            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
-                        </ul>
+                    <div class="col">
+                        <a href="#" class="fb btnn">
+                            <i class="fa fa-facebook fa-fw"></i> SignUp with Facebook
+                        </a>
+                        <a href="#" class="twitter btnn">
+                            <i class="fa fa-twitter fa-fw"></i> SignUp with Twitter
+                        </a>
+                        <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
+                            </i> SignUp with Google+
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+            </div>
+            <div class="col-md-4"></div>
         </div>
     </div>
     <!-----Login/registration end----->

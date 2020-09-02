@@ -7,59 +7,27 @@
         <!-- Footer links -->
         <div class="row text-center text-md-left mt-3 pb-3">
 
-            <!-- Grid column -->
+            <!-- Grid column 1-->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Cat Deal</h6>
                 <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
                     consectetur
                     adipisicing elit.</p>
             </div>
-            <!-- Grid column -->
+            <!-- Grid column 1-->
 
             <hr class="w-100 clearfix d-md-none">
 
-            <!-- Grid column -->
+            <!-- Grid column 2-->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
-                <p>
-                    <a href="#!">Chair</a>
-                </p>
-                <p>
-                    <a href="#!">Table</a>
-                </p>
-                <p>
-                    <a href="#!">Fan</a>
-                </p>
-                <p>
-                    <a href="#!">Lights</a>
-                </p>
+
             </div>
-            <!-- Grid column -->
+            <!-- Grid column 2-->
 
             <hr class="w-100 clearfix d-md-none">
 
-            <!-- Grid column -->
+            <!-- Grid column 3-->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
-                <p>
-                    <a href="#!">Your Account</a>
-                </p>
-                <p>
-                    <a href="#!">Become an Affiliate</a>
-                </p>
-                <p>
-                    <a href="#!">Shipping Rates</a>
-                </p>
-                <p>
-                    <a href="#!">Help</a>
-                </p>
-            </div>
-
-            <!-- Grid column -->
-            <hr class="w-100 clearfix d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                 <p>
                     <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
@@ -70,7 +38,15 @@
                 <p>
                     <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
             </div>
-            <!-- Grid column -->
+
+            <!-- Grid column 3-->
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column 4-->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+
+            </div>
+            <!-- Grid column 4-->
 
         </div>
         <!-- Footer links -->

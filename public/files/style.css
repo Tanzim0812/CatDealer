@@ -95,10 +95,78 @@
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 50px solid #ff9c33;
+    border-bottom: 50px solid #fed03d;
 }
 .square {
     width: 50px;
     height: 50px;
-    background: #ff9c33;
+    background: #fed03d;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+/* style inputs and link buttons */
+
+.btnn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 10px;
+    text-decoration: none; /* remove underline from anchors */
+}
+
+
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+    background-color: #3B5998;
+    color: white;
+}
+
+.twitter {
+    background-color: #55ACEE;
+    color: white;
+}
+
+.google {
+    background-color: #dd4b39;
+    color: white;
+}
+
+/* Two-column layout */
+.col {
+    float: left;
+    width: 100%;
+    margin: auto;
+    padding: 0 50px;
+    margin-top: 6px;
+}
+.login-shadow{-webkit-box-shadow: 5px -5px 6px 0px rgba(82,82,82,0.52);
+    -moz-box-shadow: 5px -5px 6px 0px rgba(82,82,82,0.52);
+    box-shadow: 5px -5px 6px 0px rgba(82,82,82,0.52);
+    z-index:1;
+
+}
+
+.signup-shadow{-webkit-box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
+    -moz-box-shadow: -5px -5px 6px 0px rgba(82,82,82,0.52);
+    box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
+
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+    .col {
+        width: 100%;
+        margin-top: 0;
+    }
+
+}
+

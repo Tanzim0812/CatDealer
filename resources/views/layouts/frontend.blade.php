@@ -4,7 +4,7 @@
 <div class="container">
 
     <!---Header start --->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-expand-sm navbar-light bg-warning">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +36,19 @@
     <!-- Footer -->
 </div>
 <!--/div.container----->
+<script>
+    $('#tab1').on('click' , function(){
+        $('#tab1').addClass('login-shadow');
+        $('#tab2').removeClass('signup-shadow');
+    });
 
+    $('#tab2').on('click' , function(){
+        $('#tab2').addClass('signup-shadow');
+        $('#tab1').removeClass('login-shadow');
+
+
+    });
+</script>
 
 </body>
 </html>
