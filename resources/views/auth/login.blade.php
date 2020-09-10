@@ -1,205 +1,193 @@
 @extends('layouts.frontend')
 @section('content')
     <!--Carousel Wrapper-->
-    <div id="carousel-example-1z" class="carousel slide mt-2" data-ride="carousel">
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-            <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-        </ol>
-        <!--/.Indicators-->
-        <!--Slides-->
-        <div class="carousel-inner" role="">
-            <!--First slide-->
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
-                     alt="First slide">
-                <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>We had such a great time in LA!</p>
-                </div>
+    <div id="carousel-example-1z" class="carousel slide" style="border-top: 2px solid grey" data-ride="carousel">
+        <div id="tooplate_middle">
+            <div id="slider">
+                <a href="#" style="width: 1100px"><img src="{{asset('files/images/slideshow/titan.jpg')}}"  alt="nature 1" title="Suspendisse quis velit ac nisl ultrices tristique a eu velit." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 2" title="Fusce eget tellus eget felis ultrices volutpat et vitae mauris." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/bluejuta.jpg')}}" alt="nature 3" title="Duis non est nec dui tincidunt pulvinar lacinia vel quam." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 4" title="Phasellus in orci eget neque tristique semper ut ac lacus." /></a>
             </div>
-            <!--/First slide-->
-            <!--Second slide-->
-            <div class="carousel-item">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
-                     alt="Second slide">
-                <div class="carousel-caption">
-                    <h3>Newyork</h3>
-                    <p>We had such a great time in LA!</p>
-                </div>
-            </div>
-            <!--/Second slide-->
-            <!--Third slide-->
-            <div class="carousel-item">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                     alt="Third slide">
-                <div class="carousel-caption">
-                    <h3>washington</h3>
-                    <p>We had such a great time in LA!</p>
-                </div>
-            </div>
-            <!--/Third slide-->
         </div>
-        <!--/.Slides-->
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
     </div>
     <!--/.Carousel Wrapper-->
 
 
     <!-----Cat service start---->
     <div class="col-md-12 mt-3 mb-3" style="border-bottom: 1px solid whitesmoke">
-        <h5 class="text-center text-primary mt-2 text-uppercase" style="padding: 5px"><span style="background-color: #ffebcc">Cat Service</span></h5>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="square"></div>
-                        <h5 class="card-title">Cat WholeSale</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the title and make up the bulk of the content.</p>
-                        <a href="#!" class="card-link">link</a>
+        <section class="services-area section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="section-title text-center">
+
+                            <h3 id="example3">Cat Services</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="single-serviecs-block">
+                            <i class="fas fa-user"></i>
+                            <h3><a href="services-details.html">Cat Consumer</a></h3>
+                            <p style="font-size: 13px">Seek help to Admin</p>
+                            <p class="clearfix">Here Cat users choose their product and make inquiry about his/her product. Our Admin panel is here for you.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="single-serviecs-block">
+                            <i class="far fa-lightbulb"></i>
+                            <h3><a href="services-details.html">Cat Administrator</a></h3>
+                            <p style="font-size: 13px">24/7 Consumer support</p>
+                            <p class="clearfix">Cat Admins are always support users by supplying them details about their selective product. They make everything clear to about their inquiries.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="single-serviecs-block">
+                            <i class="fas fa-briefcase"></i>
+                            <h3><a href="services-details.html">Cat Business</a></h3>
+                            <p style="font-size: 13px">Business to Consumers</p>
+                            <p class="clearfix">B2C is selling products and services directly between a business and consumers. We sell directly to consumers by E-commerce.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="triangle-up"></div>
-                        <h5 class="card-title">Cat BuYer</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the title and make up the bulk of the content.</p>
-                        <a href="#!" class="card-link">link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="square"></div>
-                        <h5 class="card-title">Cat Business</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the title and make up the bulk of the content.</p>
-                        <a href="#!" class="card-link">link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section><!--/Services Area-->
     </div>
     <!-----/Cat service end---->
 
     <!-----Login/registration start----->
-    <div class="col-md-12 mt-2" style="border:1px solid yellow">
-        <h5 class="text-center text-primary mt-2 text-uppercase" style="padding: 5px"><span style="background-color: #ffebcc">Sign Up/Login</span></h5>
-        <div class="form-body">
-            @if($errors->any())
-                @foreach($errors->all() as $err)
-                    <div class="alert alert-danger text-center">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>{{$err}}</strong>
-                    </div>
-                @endforeach
-            @endif
-            <ul class="nav nav-tabs final-login">
-                <li class="active bg-warning" style="padding: 5px"><a data-toggle="tab" href="#sectionA"><b>Sign In</b></a></li>
-                <li class="bg-info" style="padding: 5px"><a data-toggle="tab" href="#sectionB"><b style="color: black">Join us!</b></a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="sectionA" class="tab-pane active">
-                    <div class="innter-form">
-                        <form class="sa-innate-form" method="post" action="{{ route('login') }}">
-                            @csrf
-                            <label>Email Address</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+    <div class="container mt-5">
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                            <label>Password</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+        <div class="row">
 
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                            <button type="submit">Sign In</button>
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
-                        </form>
-                    </div>
-                    <div class="social-login">
-                        <p>- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - - </p>
-                        <ul>
-                            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
+            <div class="col-md-8">
+                <div class="section-title text-center">
+                    <h3 id="example3">Join Us!</h3>
                 </div>
-                <div id="sectionB" class="tab-pane fade">
-                    <div class="innter-form">
-                        <form class="sa-innate-form" method="post" action="{{ route('register') }}" enctype="multipart/form-data">
-                            @csrf
-                            <label>Name</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <div class="form-body" id="example4">
+                    @if($errors->any())
+                        @foreach($errors->all() as $err)
+                            <div class="alert alert-danger text-center">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>{{$err}}</strong>
+                            </div>
+                        @endforeach
+                    @endif
+                    <ul class="nav nav-tabs final-login">
+                        <li id="tab1" class="login-shadow" style="padding: 5px;background-color: #e0e0eb"><a data-toggle="tab" href="#sectionA"><b style="color:navy">Sign In</b></a></li>
+                        <li id="tab2" class="" style="padding: 5px;background-color: #c2c2d6"><a data-toggle="tab" href="#sectionB"><b style="color: black">Sign Up</b></a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="sectionA" class="tab-pane active">
+                            <div class="innter-form">
+                                <form class="sa-innate-form" method="post" action="{{route('login') }}">
+                                    @csrf
+                                    <label>Email Address</label>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+
+                                    <label>Password</label>
+                                    <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
+
+
+                                    <button type="submit">Sign In</button>
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    @endif
+                                </form>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="fb btnn">
+                                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                                </a>
+                                <a href="#" class="twitter btnn">
+                                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                                </a>
+                                <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
+                                    </i> Login with Google+
+                                </a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="sectionB" class="tab-pane fade">
+                            <div class="innter-form">
+                                <form class="sa-innate-form" method="post" action="{{ route('register') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <label>Name</label>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" >
+
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                            <label>Email Address</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    @enderror
+                                    <label>Email Address</label>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" >
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                            <label>Password</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    @enderror
+                                    <label>Password</label>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
 
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
+                                    @enderror
 
-                            <label>Confirm Password</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    <label>Confirm Password</label>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
-                            <button type="submit">Join now</button>
-                            <p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
-                        </form>
-                    </div>
-                    <div class="social-login">
-                        <p>- - - - - - - - - - - - - Register With - - - - - - - - - - - - - </p>
-                        <ul>
-                            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
-                        </ul>
+                                    <button type="submit">Join now</button>
+                                    <p>By clicking Join now, you agree to Cat Dealer User Agreement, Privacy Policy, and Cookie Policy.</p>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="fb btnn">
+                                    <i class="fa fa-facebook fa-fw"></i> SignUp with Facebook
+                                </a>
+                                <a href="#" class="twitter btnn">
+                                    <i class="fa fa-twitter fa-fw"></i> SignUp with Twitter
+                                </a>
+                                <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
+                                    </i> SignUp with Google+
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4 mt-2">
+                <div class="section-title text-center">
+                    <h3 id="example3">Check Our Videos</h3>
+                </div>
+
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0OxCzqd_JPQ" allowfullscreen></iframe>
+                </div>
+
+                <div class="row" style="margin-left: 1px">
+                    <iframe src="https://www.youtube.com/embed/cSkNzJN6hE8" width="168" height="145" frameborder="0" allowfullscreen style="margin-right: 2px;margin-top: 3px"></iframe>
+
+                    <iframe src="https://www.youtube.com/embed/LUpQSaKuVD0" width="168" height="145" frameborder="0" allowfullscreen style="margin-left: : 2px;margin-top: 3px"></iframe>
+                </div>
+
+
+
+            </div>
         </div>
+
     </div>
     <!-----Login/registration end----->
 @endsection

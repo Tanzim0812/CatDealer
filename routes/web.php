@@ -23,4 +23,18 @@ Auth::routes();
 
 Route::middleware(['Admin','auth'])->group(function (){
 Route::get('/admin', 'HomeController@index')->name('admin');
+/* Category */
+Route::get('/AllCategories', 'categoriesController@index')->name('show-cat');
+Route::post('/saveCategories', 'categoriesController@store')->name('save-cat');
+Route::get('/deleteCategories/{id}', 'categoriesController@destroy')->name('del-cat');
+Route::get('/cat-show/{id}','categoriesController@show')->name('cat-show');
+Route::post('/updateCategories', 'categoriesController@update')->name('update-cat');
+
+/* Sub category */
+Route::get('/AllsubCategories', 'subcategoriesController@index')->name('show-subcat');
+Route::post('/savesubCategories', 'subcategoriesController@store')->name('save-subcat');
+Route::get('/deletesubCategories/{id}', 'subcategoriesController@destroy')->name('del-subcat');
+Route::get('/subcat-show/{id}','subcategoriesController@show')->name('subcat-show');
+Route::post('/updatesubCategories', 'subcategoriesController@update')->name('update-subcat');
+
 });

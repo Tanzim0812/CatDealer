@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small mdb-color pt-4 mt-5" style="background-color: #e68a00">
+<footer class="page-footer font-small mdb-color pt-4 mt-5" style="background-color: #ededed">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -7,27 +7,41 @@
         <!-- Footer links -->
         <div class="row text-center text-md-left mt-3 pb-3">
 
-            <!-- Grid column 1-->
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Cat Deal</h6>
                 <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
                     consectetur
                     adipisicing elit.</p>
             </div>
-            <!-- Grid column 1-->
+            <!-- Grid column -->
+
+
 
             <hr class="w-100 clearfix d-md-none">
 
-            <!-- Grid column 2-->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                <p>
+                    <a href="#!" style="color: navy">Your Account</a>
+                </p>
+                <p>
+                    <a href="#!" style="color: navy">Become an Affiliate</a>
+                </p>
+                <p>
+                    <a href="#!" style="color: navy">Shipping Rates</a>
+                </p>
+                <p>
+                    <a href="#!" style="color: navy">Help</a>
+                </p>
             </div>
-            <!-- Grid column 2-->
 
+            <!-- Grid column -->
             <hr class="w-100 clearfix d-md-none">
 
-            <!-- Grid column 3-->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                 <p>
                     <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
@@ -38,15 +52,7 @@
                 <p>
                     <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
             </div>
-
-            <!-- Grid column 3-->
-            <hr class="w-100 clearfix d-md-none">
-
-            <!-- Grid column 4-->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-
-            </div>
-            <!-- Grid column 4-->
+            <!-- Grid column -->
 
         </div>
         <!-- Footer links -->
@@ -77,24 +83,15 @@
                     <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">
                             <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fa-facebook-f"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                                <i class="fab fa-google-plus-g"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
 
