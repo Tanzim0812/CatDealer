@@ -79,7 +79,7 @@
             <tbody>
             @foreach($show as $row)
                 <tr>
-                    <td>{{$row->id}}</td>
+                    <td>{{$loop->index+1}}</td>
                     <td>{{$row->categories->category_name}}</td>
                     <td>{{$row->subcat_name}}</td>
                     <td>{{$row->subcat_status}}</td>

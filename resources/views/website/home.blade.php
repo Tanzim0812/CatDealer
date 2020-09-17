@@ -3,12 +3,12 @@
     <!--Carousel Wrapper-->
     <div id="carousel-example-1z" class="carousel slide" style="border-top: 2px solid grey" data-ride="carousel">
         <div id="tooplate_middle">
-        <div id="slider">
-            <a href="#" style="width: 1100px"><img src="{{asset('files/images/slideshow/titan.jpg')}}"  alt="nature 1" title="Suspendisse quis velit ac nisl ultrices tristique a eu velit." /></a>
-            <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 2" title="Fusce eget tellus eget felis ultrices volutpat et vitae mauris." /></a>
-            <a href="#"><img src="{{asset('files/images/slideshow/bluejuta.jpg')}}" alt="nature 3" title="Duis non est nec dui tincidunt pulvinar lacinia vel quam." /></a>
-            <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 4" title="Phasellus in orci eget neque tristique semper ut ac lacus." /></a>
-        </div>
+            <div id="slider">
+                <a href="#" style="width: 1100px"><img src="{{asset('files/images/slideshow/titan.jpg')}}"  alt="nature 1" title="Suspendisse quis velit ac nisl ultrices tristique a eu velit." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 2" title="Fusce eget tellus eget felis ultrices volutpat et vitae mauris." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/bluejuta.jpg')}}" alt="nature 3" title="Duis non est nec dui tincidunt pulvinar lacinia vel quam." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 4" title="Phasellus in orci eget neque tristique semper ut ac lacus." /></a>
+            </div>
         </div>
     </div>
     <!--/.Carousel Wrapper-->
@@ -65,7 +65,7 @@
 
             <div class="col-md-8">
                 <div class="section-title text-center">
-                <h3 id="example3">Join Us!</h3>
+                    <h3 id="example3">Join Us!</h3>
                 </div>
                 <div class="form-body" id="example4">
                     @if($errors->any())
@@ -120,17 +120,40 @@
                                 <form class="sa-innate-form" method="post" action="{{ route('register') }}" enctype="multipart/form-data">
                                     @csrf
                                     <label>Name</label>
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" >
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" >
 
-
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                     <label>Email Address</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" >
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" >
 
-
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                    <label>Why you do Register?</label>
+                                    <select class="form-control" name="issueofreg">
+                                        <option class="alert-danger" disabled="true" selected="true">-Select-</option>
+                                        <option value="Have_Company">I have a Company</option>
+                                        <option value="Have_business">For Business issue</option>
+                                    </select>
+                                    @error('issueofreg')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                     <label>Password</label>
-                                    <input id="password" type="password" class="form-control"  name="password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
 
-
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
 
                                     <label>Confirm Password</label>
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
@@ -158,18 +181,18 @@
 
             <div class="col-md-4 mt-2">
                 <div class="section-title text-center">
-                <h3 id="example3">Check Our Videos</h3>
+                    <h3 id="example3">Check Our Videos</h3>
                 </div>
 
-            <div class="embed-responsive embed-responsive-4by3">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0OxCzqd_JPQ" allowfullscreen></iframe>
-            </div>
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0OxCzqd_JPQ" allowfullscreen></iframe>
+                </div>
 
-            <div class="row" style="margin-left: 1px">
-            <iframe src="https://www.youtube.com/embed/cSkNzJN6hE8" width="168" height="145" frameborder="0" allowfullscreen style="margin-right: 2px;margin-top: 3px"></iframe>
+                <div class="row" style="margin-left: 1px">
+                    <iframe src="https://www.youtube.com/embed/cSkNzJN6hE8" width="168" height="145" frameborder="0" allowfullscreen style="margin-right: 2px;margin-top: 3px"></iframe>
 
-            <iframe src="https://www.youtube.com/embed/LUpQSaKuVD0" width="168" height="145" frameborder="0" allowfullscreen style="margin-left: : 2px;margin-top: 3px"></iframe>
-            </div>
+                    <iframe src="https://www.youtube.com/embed/LUpQSaKuVD0" width="168" height="145" frameborder="0" allowfullscreen style="margin-left: : 2px;margin-top: 3px"></iframe>
+                </div>
 
 
 

@@ -135,6 +135,17 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                    <label>Why you do Register?</label>
+                                    <select class="form-control" name="issueofreg">
+                                        <option class="alert-danger" disabled="true" selected="true">-Select-</option>
+                                        <option value="Have_Company">I have a Company</option>
+                                        <option value="Have_business">For Business issue</option>
+                                    </select>
+                                    @error('issueofreg')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                     <label>Password</label>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
 

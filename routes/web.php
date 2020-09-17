@@ -18,6 +18,13 @@ Route::get('/', function () {
 });
 Route::middleware(['User','auth'])->group(function () {
 Route::get('/userprofile', 'sitecontroller@index')->name('userprofile');
+
+Route::get('/message', 'chatcontroller@index')->name('message');
+Route::post('/chatStart', 'chatcontroller@chatstart')->name('chat-start');
+Route::post('/messageSend', 'chatcontroller@store')->name('message-send');
+Route::get('/showuser/{id}', 'chatcontroller@showuser')->name('show.user');
+
+
 });
 Auth::routes();
 
@@ -36,5 +43,23 @@ Route::post('/savesubCategories', 'subcategoriesController@store')->name('save-s
 Route::get('/deletesubCategories/{id}', 'subcategoriesController@destroy')->name('del-subcat');
 Route::get('/subcat-show/{id}','subcategoriesController@show')->name('subcat-show');
 Route::post('/updatesubCategories', 'subcategoriesController@update')->name('update-subcat');
+
+/* Product */
+Route::get('/AllProduct', 'productcontroller@index')->name('show-product');
+Route::post('/saveProduct', 'productcontroller@store')->name('save-product');
+Route::get('/deleteproduct/{id}', 'productcontroller@destroy')->name('del-product');
+Route::get('/product-show/{id}','productcontroller@show')->name('product-show');
+Route::post('/updateproduct', 'productcontroller@update')->name('update-product');
+Route::get('list/getsubcat/{id}','productcontroller@getsubcat')->name('getsubcat');
+Route::get('/product-status/{id}/{product_status}','productcontroller@status')->name('product-status');
+
+/* message */
+Route::get('/messageadmin', 'chatcontroller@indexadmin')->name('message-admin');
+
+    Route::get('/show/{id}', 'chatcontroller@show')->name('show');
+    Route::get('/userprofile-show/{id}','chatcontroller@userprofileshow')->name('userprofile-show');
+
+Route::post('/messageSendadmin', 'chatcontroller@storeadmin')->name('message-sendadmin');
+
 
 });

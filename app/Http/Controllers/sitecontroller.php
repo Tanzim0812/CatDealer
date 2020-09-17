@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\userchat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class sitecontroller extends Controller
 {
@@ -13,7 +16,11 @@ class sitecontroller extends Controller
      */
     public function index()
     {
-        return view('website.userprofile');
+        $id=Auth::user()->id;
+        $chat = DB::select( DB::raw("SELECT * FROM userchats WHERE user_id='$id'"));
+        $chatt = DB::select( DB::raw("SELECT id FROM userchats WHERE user_id='$id'"));
+
+        return view('website.userprofile',compact('chat','chatt'));
     }
 
     /**
