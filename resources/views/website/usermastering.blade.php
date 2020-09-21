@@ -180,6 +180,23 @@
             color: black;
         }
 
+        #body{
+            padding:20px 20px;
+        }
+
+        .results tr[visible='false'],
+        .no-result{
+            display:none;
+        }
+
+        .results tr[visible='true']{
+            display:table-row;
+        }
+
+        .counter{
+            padding:8px;
+            color:#ccc;
+        }
     </style>
 </head>
 <body>
@@ -187,7 +204,7 @@
     <div class="container-fluid">
 
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{route('userprofile')}}">User Profile</a></li>
+            <li class="active"><a href="{{route('userdashboard')}}">User dashboard</a></li>
             <li><a href="">My Account</a></li>
             <li><a href="">My Order</a></li>
             <li><a href="">My Credit</a></li>
@@ -195,6 +212,8 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">{{\Illuminate\Support\Facades\Auth::user()->name}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                    <li><a href="{{route('userprofile')}}" title="Userprofile"><i class="fa fa-user" aria-hidden="true"></i> Your Profile</a>
+                    </li>
                     <li><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" data-toggle="tooltip" data-placement="left" title="Logout"><i class="fa fa-sign-out log-out" aria-hidden="true"></i> Logout</a>
                         <form method="post" action="{{route('logout')}}" id="logout-form" style="display: none">
                             @csrf
@@ -208,7 +227,7 @@
 
 <main class="py-4">
     <div class="container">
-        <h3 class="alert alert-success">User Profile</h3>
+
             @yield('content')
     </div>
 </main>
@@ -225,6 +244,35 @@
         }
         timeleft -= 1;
     }, 1000);
+</script>
+<script>
+/* userdashboard table */
+$(document).ready(function() {
+    $(".search").keyup(function () {
+        var searchTerm = $(".search").val();
+        var listItem = $('.results tbody').children('tr');
+        var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+        $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+            }
+        });
+
+        $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+            $(this).attr('visible','false');
+        });
+
+        $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+            $(this).attr('visible','true');
+        });
+
+        var jobCount = $('.results tbody tr[visible="true"]').length;
+        $('.counter').text(jobCount + ' item');
+
+        if(jobCount == '0') {$('.no-result').show();}
+        else {$('.no-result').hide();}
+    });
+});
 </script>
 </body>
 </html>

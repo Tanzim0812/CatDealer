@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('website.home');
 });
 Route::middleware(['User','auth'])->group(function () {
-Route::get('/userprofile', 'sitecontroller@index')->name('userprofile');
+Route::get('/userdashboard', 'sitecontroller@index')->name('userdashboard');
+Route::get('/userprofile', 'sitecontroller@userpro')->name('userprofile');
+
 
 Route::get('/message', 'chatcontroller@index')->name('message');
 Route::post('/chatStart', 'chatcontroller@chatstart')->name('chat-start');

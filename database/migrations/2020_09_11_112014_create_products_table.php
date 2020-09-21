@@ -21,8 +21,10 @@ class CreateProductsTable extends Migration
             $table->string('details',255);
             $table->integer('previous_price');
             $table->integer('offer_price');
+            $table->integer('qty');
             $table->string('image');
             $table->tinyInteger('status')->default('1');
+            $table->string('hscode');
             $table->timestamps();
 
 

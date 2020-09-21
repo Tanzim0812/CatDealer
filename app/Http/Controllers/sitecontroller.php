@@ -17,6 +17,16 @@ class sitecontroller extends Controller
     public function index()
     {
         $id=Auth::user()->id;
+        $userpr_ids=userchat::where('user_id','=',$id)->get()->pluck('pro_id')->toArray();
+        //$chat = DB::select( DB::raw("SELECT * FROM userchats WHERE user_id='$id'"));
+        $chat = userchat::where('user_id',$id)->first();
+        $chatt = DB::select( DB::raw("SELECT id,pro_id,user_id FROM userchats WHERE user_id='$id'"));
+
+        return view('website.userdashboard',compact('chat','chatt','userpr_ids'));
+    }
+    public function userpro()
+    {
+        $id=Auth::user()->id;
         $chat = DB::select( DB::raw("SELECT * FROM userchats WHERE user_id='$id'"));
         $chatt = DB::select( DB::raw("SELECT id FROM userchats WHERE user_id='$id'"));
 

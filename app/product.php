@@ -22,4 +22,8 @@ class product extends Model
     public function product(){
         return $this->belongsTo(subcategories::class,'subcat_id');
     }
+    public static function allproduct(){
+        $pro=product::get();
+        return $pro;
+    }
 }

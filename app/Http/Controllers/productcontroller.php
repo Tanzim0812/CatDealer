@@ -52,6 +52,7 @@ public function getsubcat($id){
         $product->details = $request->details;
         $product->previous_price = $request->previous_price;
         $product->offer_price = $request->offer_price;
+        $product->qty = $request->qty;
 
         if ($request->hasFile('image')){
         $file=$request->file('image');
@@ -118,6 +119,8 @@ public function getsubcat($id){
         $update->previous_price = $request->previous_price;
         $update->offer_price = $request->offer_price;
         $update->hscode = $request->hscode;
+        $update->qty = $request->qty;
+
         $update->image = $request->image;
 
         $update->save();

@@ -99,6 +99,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-sm-2" for="qty">qty:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" id="qty" name="qty">
+                                        @error('qty')
+                                        <strong class="text-bold text-danger">{{$message}}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
@@ -175,6 +184,11 @@
                                             <div class="form-group">
                                                 <label class="control-label col-sm-2" for="ofprice">New Price</label>
                                                 <input type="number" class="form-control" id="ofprice" name="offer_price">
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-2" for="qty">qty</label>
+                                                <input type="number" class="form-control" id="qtyy" name="qty">
 
                                             </div>
 

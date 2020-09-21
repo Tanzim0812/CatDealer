@@ -58,6 +58,8 @@ function promoda(id) {
             $("#prprice").val(data.data.previous_price);
             $("#ofprice").val(data.data.offer_price);
             $("#imge").val(data.data.image);
+            $("#qtyy").val(data.data.qty);
+
 
 
 

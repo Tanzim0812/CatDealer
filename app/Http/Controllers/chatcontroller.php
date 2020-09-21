@@ -54,6 +54,9 @@ class chatcontroller extends Controller
         $send->user_name=$request->user_name;
         $send->chat_id=$request->chat_id;
         $send->token_id=$request->token_id;
+        $send->pro_name=$request->pro_name;
+        $send->target_price=$request->target_price;
+        $send->qty=$request->qty;
         $send->message=$request->message;
 
         if ($request->hasFile('image')){
@@ -90,7 +93,10 @@ class chatcontroller extends Controller
     public function chatstart(Request $request)
     {
         $start=new userchat();
+        $start->pro_id=$request->pro_id;
         $start->user_id=$request->user_id;
+
+
 
         $i=17;
         $y=25;
@@ -102,7 +108,6 @@ class chatcontroller extends Controller
         $start->token = $strr;
         $i++;
         $y++;
-
         $start->save();
         return back();
     }
@@ -116,7 +121,7 @@ class chatcontroller extends Controller
     public function show($id)
     {
         //$id=base64_decode($id);
-        $show=userchat::find(base64_decode($id));
+        $show=userchat::with('product')->where('id',base64_decode($id));
         $indxx=message::where('chat_id',base64_decode($id))->get();
         return view('admin.adminchat',compact('show','indxx'));
     }

@@ -33,7 +33,7 @@ class LoginController extends Controller
         if (auth()->user()->role==1){
             return route('admin');
         }else{
-            return route('userprofile');
+            return route('userdashboard');
         }
     }
 

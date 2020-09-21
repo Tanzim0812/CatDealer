@@ -17,12 +17,18 @@ class CreateUserchatsTable extends Migration
             $table->bigIncrements('id',11);
             $table->unsignedBigInteger('user_id');
             $table->integer('admin_id')->default(2);
+            $table->unsignedBigInteger('pro_id');
             $table->string('token');
             $table->timestamps();
 
             $table->foreign('user_id')->
             references('id')->
             on('users')->
+            onDelete('cascade');
+
+            $table->foreign('pro_id')->
+            references('id')->
+            on('products')->
             onDelete('cascade');
 
 
