@@ -158,6 +158,9 @@
                                     <label>Confirm Password</label>
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
+                                    <label>Your Avatar</label>
+                                    <input type="file" class="form-control" name="image" accept="image/*">
+
                                     <button type="submit">Join now</button>
                                     <p>By clicking Join now, you agree to Cat Dealer User Agreement, Privacy Policy, and Cookie Policy.</p>
                                 </form>

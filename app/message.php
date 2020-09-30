@@ -20,22 +20,25 @@ class message extends Model
         return $this->belongsTo(userchat::class);
     }
 
-    public static function showchat(){
+    public static function chatproduct(){
         $id=Auth::user()->id;
-        $showchat=message::whereBetween('user_id',[1,2])->get();//user id from auth, id 2 is admin's id.
+        $showchat=userchat::orderBy('created_at','DESC')->get();
+        return $showchat;
+    }
+
+    public static function chatmsgg(){
+        $id=Auth::user()->id;
+        $showchat=userchat::orderBy('id','DESC')->limit(4)->get();
         return $showchat;
     }
     public static function messagehas(){
-        $hm=message::get();
+        $hm=message::orderBy('chat_id','DESC')->limit(4)->get();
         return $hm;
     }
-    public static function chat(){
+    public static function customizechatproduct(){
         //$id=Auth::user()->id;
-        $jj=userchat::get();
+        $jj=userchat::where('customize',1)->get();
         return $jj;
     }
-    public static function chatt($id){
-        $jj=userchat::where('id',$id)->get();
-        return $jj;
-    }
+
 }

@@ -25,162 +25,33 @@
     <link href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css">
     <link href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap4.min.css">
 
+    <!-- Custom styles for this page -->
+    <link href="{{asset('files/admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+
+
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+    <script src="{{asset('files/admin/ckeditor/ckeditor.js')}}"></script>
+
     <style>
-        .outerbg {
-            width: 100%;
-            max-width: 610px;
-            margin: 20px;
-            padding: 30px 0;
-            margin: 0 auto;
-            background: url('https://s24.postimg.org/63armx1h1/sahil_sahil_chatsbg.png');
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-        }
-
-        .chatboxout {
-            font-family: open sans;
-            font-size: 12px;
-            line-height: 17px;
-            box-sizing: border-box;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 10px;
-            background: #fff;
-            border-radius: 5px;
-            -webkit-box-shadow: 4px 4px 20px -1px rgba(59, 59, 59, 0.6);
-            -moz-box-shadow: 4px 4px 20px -1px rgba(59, 59, 59, 0.6);
-            box-shadow: 4px 4px 20px -1px rgba(59, 59, 59, 0.6);
-        }
-
-        .chatboxin {
-            box-sizing: border-box;
-            border: 1px solid rgba(208, 208, 208, 1);
-            border-radius: 5px;
-            padding: 5px 15px;
-        }
-
-        .chat-sender.msg {
-            -webkit-clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 12px 70%);
-            clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 12px 70%);
-            padding: 9px 9px;
-            padding-left: 21px;
-
-            font-size: 12px;
-            font-family:"Malgun Gothic";
-            box-sizing: border-box;
-            width: calc(100% - 53px);
-            margin-left: -9px;
-        }
-
-        .chatmsg {
-            margin-top: 5px;
-        }
-
-        .chat-sender {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .chat-container {
-            margin-top: 15px;
-            margin-bottom: 15px;
-            animation: fadein 2s;
-            -moz-animation: fadein 2s; /* Firefox */
-            -webkit-animation: fadein 2s; /* Safari and Chrome */
-            -o-animation: fadein 2s; /* Opera */
-        }
-
-        .chat-respond.msg {
-            -webkit-clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 12px 70%);
-            clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 12px 70%);
-            padding: 9px 9px;
-            padding-left: 21px;
-            background-color: #E6E6E6;
-            color: #333;
-            box-sizing: border-box;
-            width: calc(100% - 53px);
-            margin-right: -9px;
-            transform: scale(-1, 1);
-            -moz-transform: scale(-1, 1);
-            -webkit-transform: scale(-1, 1);
-            -o-transform: scale(-1, 1);
-            -ms-transform: scale(-1, 1);
-        }
-
-        .chat-respond.msg strong {
-            color: #F48806;
-        }
-
-        .chat-respond {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .flippd {
-            width: 100%;
-            transform: scale(-1, 1);
-            -moz-transform: scale(-1, 1);
-            -webkit-transform: scale(-1, 1);
-            -o-transform: scale(-1, 1);
-            -ms-transform: scale(-1, 1);
-        }
-
-
-        @keyframes fadein {
-            from {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 100%, 0);
-                transform: translate3d(0, 100%, 0);
-            }
-            to {
-                opacity: 1;
-                -webkit-transform: none;
-                transform: none;
-            }
-        }
-        @-moz-keyframes fadein { /* Firefox */
-            from {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 100%, 0);
-                transform: translate3d(0, 100%, 0);
-            }
-            to {
-                opacity: 1;
-                -webkit-transform: none;
-                transform: none;
-            }
-        }
-        @-webkit-keyframes fadein { /* Safari and Chrome */
-            from {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 100%, 0);
-                transform: translate3d(0, 100%, 0);
-            }
-            to {
-                opacity: 1;
-                -webkit-transform: none;
-                transform: none;
-            }
-        }
-        @-o-keyframes fadein { /* Opera */
-            from {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 100%, 0);
-                transform: translate3d(0, 100%, 0);
-            }
-            to {
-                opacity: 1;
-                -webkit-transform: none;
-                transform: none;
-            }
-        }
-        .time-right {
-            float: right;
-            color: #aaa;
-        }
-
+body{
+    font-family: "open sans";
+}
         .time-left {
             float: left;
             color: #999;
@@ -194,6 +65,157 @@
             color: black;
         }
 
+        #bodytab{
+            padding:20px 20px;
+
+        }
+
+        .results tr[visible='false'],
+        .no-result{
+            display:none;
+        }
+
+        .results tr[visible='true']{
+            display:table-row;
+        }
+
+        #boody {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .containerr {
+            border: 2px solid #dedede;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .darker {
+            border-color: #ccc;
+            background-color: #ddd;
+        }
+
+        .containerr::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .containerr img {
+            float: left;
+            max-width: 60px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        .containerr img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right:0;
+        }
+        /* Button used to open the chat form - fixed at the bottom of the page */
+
+        .contact-form{
+            background: #fff;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            width: 70%;
+        }
+        .contact-form .form-control{
+            border-radius:1rem;
+        }
+        .contact-image{
+            text-align: center;
+        }
+        .contact-image img{
+            border-radius: 6rem;
+            width: 11%;
+            margin-top: -3%;
+            transform: rotate(29deg);
+        }
+        .contact-form form{
+            padding: 14%;
+        }
+        .contact-form form .row{
+            margin-bottom: -7%;
+        }
+        .contact-form h3{
+            margin-bottom: 8%;
+            margin-top: -10%;
+            text-align: center;
+            color: #0062cc;
+        }
+        .contact-form .btnContact {
+            width: 50%;
+            border: none;
+            border-radius: 1rem;
+            padding: 1.5%;
+            background: #dc3545;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btnContactSubmit
+        {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #0062cc;
+            border: none;
+            cursor: pointer;
+        }
+td{
+    font-family: "open sans";
+}
+        .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+        .toggle.ios .toggle-handle { border-radius: 20px; }
+
+.containeer{margin-top:20px;}
+
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+.envelope {
+    margin: auto;
+    position: relative;
+    width: 600px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    background: linear-gradient(45deg, rgba(64, 112, 155, 1) 13%, rgba(255, 255, 255, 1) 13%, rgba(255, 255, 255, 1) 25%, rgba(254, 0, 1, 1) 25%, rgba(254, 0, 1, 1) 37%, rgba(255, 255, 255, 1) 37%, rgba(255, 255, 255, 1) 50%, rgba(64, 112, 155, 1) 50%, rgba(64, 112, 155, 1) 63%, rgba(255, 255, 255, 1) 63%, rgba(255, 255, 255, 1) 75%, rgba(254, 0, 1, 1) 75%, rgba(254, 0, 1, 1) 87%, rgba(255, 255, 255, 1) 87%);
+    background-size: 100px 100px;
+}
+
+.envelope .inner {
+    background: #fff;
+    padding: 20px;
+    background-image: url('http://publicdomainvectors.org/photos/uroesch-Air-Mail-Postage-Stamp.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 25% 25%;
+}
+
+.envelope h2,
+.envelope h3,
+.envelope button {
+    font-family: 'Cookie';
+    color: rgba(64, 112, 155, 1);
+}
+
+.envelope input,
+.envelope textarea {
+    width: 50%;
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-family: Verdana;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
     </style>
 
 </head>
@@ -204,10 +226,10 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient sidebar sidebar-dark accordion" style="background-color: #252D34" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-cat"></i>
             </div>
@@ -239,7 +261,7 @@
                 <span>Categories & Product</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
+                <div class="bg-secondary text-light py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Categories</h6>
                     <a class="collapse-item" href="{{route('show-cat')}}">Manage Categories</a>
                     <h6 class="collapse-header">Sub Categories</h6>
@@ -255,6 +277,24 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
+
+        <div class="sidebar-heading">
+            All Users
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <i class="fas fa-user-edit"></i>
+                <span>Users & Info</span>
+            </a>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">User</h6>
+                    <a class="collapse-item" href="{{route('manage.user')}}">Manage Users</a>
+                </div>
+            </div>
+        </li>
         <!-- Heading -->
         <div class="sidebar-heading">
             Addons
@@ -278,7 +318,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background-color: #3b86ec">
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -286,16 +326,7 @@
                 </button>
 
                 <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -320,15 +351,40 @@
                         </div>
                     </li>
 
-
-
+                    <!-- Nav Item - Messages -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope fa-fw" style="color: white"></i>
+                            <!-- Counter - Messages -->
+                            <span class="badge badge-danger badge-counter">{{\App\message::get()->count()}}</span>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                            <h6 class="dropdown-header">
+                                Inquiry Center
+                            </h6>
+                            @foreach(\App\message::chatmsgg() as $row)
+                            <a class="dropdown-item d-flex align-items-center" href="{{route('show',base64_encode($row->id))}}">
+                                <div class="dropdown-list-image mr-3">
+                                       <!-- <img class="rounded-circle" alt=""> -->
+                                    <i class="fas fa-cat" style="color: darkgoldenrod"></i>
+                                </div>
+                                <div class="font-weight-bold">
+                                    <div class="text-truncate">{{$row->user->name}}</div>
+                                    <div class="small text-gray-500">{{$row->created_at}}</div>
+                                </div>
+                            </a>
+                            @endforeach
+                            <a class="dropdown-item text-center small text-gray-500" href="{{route('admin')}}">Read More Messages</a>
+                        </div>
+                    </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                            <span class="mr-2 d-none d-lg-inline text-light small">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
                             <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -377,7 +433,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2020</span>
+                    <span>Copyright &copy; CAT DEALER 2020</span>
                 </div>
             </div>
         </footer>
@@ -423,6 +479,8 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('files/admin/js/sb-admin-2.min.js')}}"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -432,13 +490,62 @@
 <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.5/js/responsive.bootstrap4.min.js"></script>
 
+<!-- Page level plugins -->
+<script src="{{asset('files/admin/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('files/admin/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{{asset('files/admin/js/demo/datatables-demo.js')}}"></script>
+
+
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 <script src="{{asset('files/admin/websiteJS.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script>
+    function openForm() {
+        document.getElementById("myyForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myyForm").style.display = "none";
+    }
+</script>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("bodytab");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        w=window.open();
+        w.document.write(printContents);
+        w.print();
+        w.close();
+    }
+</script>
+<script>
+    CKEDITOR.replace('editor1');
+</script>
 
 
 </body>
-
 </html>

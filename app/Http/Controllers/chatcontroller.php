@@ -53,7 +53,6 @@ class chatcontroller extends Controller
         $send->user_id=$request->user_id;
         $send->user_name=$request->user_name;
         $send->chat_id=$request->chat_id;
-        $send->token_id=$request->token_id;
         $send->pro_name=$request->pro_name;
         $send->target_price=$request->target_price;
         $send->qty=$request->qty;
@@ -97,19 +96,19 @@ class chatcontroller extends Controller
         $start->user_id=$request->user_id;
 
 
-
-        $i=17;
-        $y=25;
-        $str="0123456789ABC";
-        $str=str_shuffle($str);
-        $str=substr($str,0,6);
-        //$strr=time().$str;
-        $strr=$i.$str.$y;
-        $start->token = $strr;
-        $i++;
-        $y++;
         $start->save();
         return back();
+    }
+    public function customchatstart(Request $request)
+    {
+        $start=new userchat();
+
+        $start->user_id=$request->user_id;
+        $start->customize=1;
+
+
+        $start->save();
+        return redirect()->to('/usermessage');
     }
 
     /**
@@ -121,16 +120,51 @@ class chatcontroller extends Controller
     public function show($id)
     {
         //$id=base64_decode($id);
-        $show=userchat::with('product')->where('id',base64_decode($id));
+        $show=userchat::with('product')->find(base64_decode($id));
         $indxx=message::where('chat_id',base64_decode($id))->get();
         return view('admin.adminchat',compact('show','indxx'));
     }
 
+    public function customshow($id)
+    {
+        //$id=base64_decode($id);
+        $show=userchat::with('product')->find(base64_decode($id));
+        $indxx=message::where('chat_id',base64_decode($id))->get();
+        return view('admin.customadminchat',compact('show','indxx'));
+    }
+
+    public function reply($id)
+    {
+        //$id=base64_decode($id);
+        $show=userchat::with('product')->find(base64_decode($id));
+        $indxx=message::where('chat_id',base64_decode($id))->get();
+        return view('admin.adminreply',compact('show','indxx'));
+    }
+    public function customreply($id)
+    {
+        //$id=base64_decode($id);
+        $show=userchat::with('product')->find(base64_decode($id));
+        $indxx=message::where('chat_id',base64_decode($id))->get();
+        return view('admin.customadminreply',compact('show','indxx'));
+    }
+    public function userchatshow($id)
+    {
+        //$id=base64_decode($id);
+        $show=userchat::find(base64_decode($id));
+        $indxx=message::where('chat_id',base64_decode($id))->get();
+        return view('website.userchatshow',compact('show','indxx'));
+    }
     public function showuser($id)
     {
         $show=userchat::find(base64_decode($id));
         $indxx=message::where('chat_id',base64_decode($id))->get();
         return view('website.userchat',compact('show','indxx'));
+    }
+    public function cusshowuser($id)
+    {
+        $show=userchat::find($id);
+        $indxx=message::where('chat_id',$id)->get();
+        return view('website.customuserchat',compact('show','indxx'));
     }
 
     public function userprofileshow($id)

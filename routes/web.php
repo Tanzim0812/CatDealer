@@ -19,13 +19,18 @@ Route::get('/', function () {
 Route::middleware(['User','auth'])->group(function () {
 Route::get('/userdashboard', 'sitecontroller@index')->name('userdashboard');
 Route::get('/userprofile', 'sitecontroller@userpro')->name('userprofile');
-
-
+Route::get('/usermessage', 'sitecontroller@usermsg')->name('usermessage');
 Route::get('/message', 'chatcontroller@index')->name('message');
 Route::post('/chatStart', 'chatcontroller@chatstart')->name('chat-start');
+Route::post('/customechatStart', 'chatcontroller@customchatstart')->name('custom-chat-start');
 Route::post('/messageSend', 'chatcontroller@store')->name('message-send');
+Route::get('/userchatshow/{id}', 'chatcontroller@userchatshow')->name('chat.show.user');
 Route::get('/showuser/{id}', 'chatcontroller@showuser')->name('show.user');
+Route::get('/customeruserchat/{id}', 'chatcontroller@cusshowuser')->name('cusshow.user');
 
+/* search */
+Route::get('search', 'searchcontroller@index')->name('search');
+Route::get('autocomplete', 'searchcontroller@getAutocompleteData')->name('autocomplete');
 
 });
 Auth::routes();
@@ -54,14 +59,19 @@ Route::get('/product-show/{id}','productcontroller@show')->name('product-show');
 Route::post('/updateproduct', 'productcontroller@update')->name('update-product');
 Route::get('list/getsubcat/{id}','productcontroller@getsubcat')->name('getsubcat');
 Route::get('/product-status/{id}/{product_status}','productcontroller@status')->name('product-status');
+Route::get('/role-status/{id}/{role_status}','HomeController@role_status')->name('role-status');
 
 /* message */
 Route::get('/messageadmin', 'chatcontroller@indexadmin')->name('message-admin');
-
-    Route::get('/show/{id}', 'chatcontroller@show')->name('show');
-    Route::get('/userprofile-show/{id}','chatcontroller@userprofileshow')->name('userprofile-show');
-
+Route::get('/show/{id}', 'chatcontroller@show')->name('show');
+Route::get('/customshow/{id}', 'chatcontroller@customshow')->name('show.customize');
+Route::get('/userprofile-show/{id}','chatcontroller@userprofileshow')->name('userprofile-show');
 Route::post('/messageSendadmin', 'chatcontroller@storeadmin')->name('message-sendadmin');
+Route::get('/reply/{id}', 'chatcontroller@reply')->name('reply');
+Route::get('/customreply/{id}', 'chatcontroller@customreply')->name('reply.customize');
 
+/* user */
+Route::get('/manageuser','HomeController@manageuser')->name('manage.user');
+Route::get('/deleteuser/{id}', 'HomeController@destroy')->name('del-user');
 
 });

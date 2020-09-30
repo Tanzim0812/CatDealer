@@ -15,22 +15,22 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Registration</a>
+                    <a class="nav-link" href="{{route('register')}}">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
                 </li>
             </ul>
             <div class="containe">
-            <form class="searchbar"> 
+            <form class="searchbar">
                 <input type="search" placeholder="Search here.." name="search" class="searchbar-input" onkeyup="buttonUp();" required>
-                 <input type="submit" class="searchbar-submit" value="GO"> 
-                <span class="searchbar-icon"><i class="fa fa-search" aria-hidden="true"></i></span> 
+                 <input type="submit" class="searchbar-submit" value="GO">
+                <span class="searchbar-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
             </form>
             </div>
     </div>
-        
-        
+
+
     </nav>
     <!---Header end --->
 

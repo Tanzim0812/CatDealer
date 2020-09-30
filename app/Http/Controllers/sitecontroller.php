@@ -32,6 +32,14 @@ class sitecontroller extends Controller
 
         return view('website.userprofile',compact('chat','chatt'));
     }
+    public function usermsg()
+    {
+        $id=Auth::user()->id;
+        $chat = DB::select( DB::raw("SELECT * FROM userchats WHERE user_id='$id'"));
+        $chatt = DB::select( DB::raw("SELECT id FROM userchats WHERE user_id='$id'"));
+
+        return view('website.usermessage',compact('chat','chatt'));
+    }
 
     /**
      * Show the form for creating a new resource.

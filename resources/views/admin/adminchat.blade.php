@@ -1,60 +1,87 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="containeer">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Right Sidebar -->
+                            <div class="col-lg-9 col-md-8">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="btn-toolbar" role="toolbar">
 
-    <div class="col-md-12">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                </div> <!-- End row -->
+                                @foreach($indxx as $row)
+                                <div class="card shadow-none mt-3 border border-light border-bottom-info" id="print-content" style="background-color: ghostwhite">
+                                    <div class="card-body">
+                                        <div class="media mb-3">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-3 mail-img shadow" alt="media image"  width="100" height="100">
+                                            <div class="media-body">
+                                                <span class="media-meta float-right">{{$loop->index+1}}</span>
+                                                <h6 class="text-primary m-0">
+                                                    <a type="button" onclick="usershow({{$row->user_id}})" data-toggle="modal" data-target="#showusermodal">
+                                                        {{strtoupper($row->user_name)}}
+                                                        <i class="fa fa-info-circle" title="Details.."></i>
+                                                    </a>
+                                                </h6>
+                                                <small class="text-muted">{{date_format($row->created_at,'d-M-yy')}}</small>
+                                            </div>
+                                        </div> <!-- media -->
 
 
+                                        <ul class="list-group">
+                                            @if($row->pro_name)
+                                                <li class="list-group-item list-group-item-light">Product Name : {{$row->pro_name}}</li>
+                                            @endif
+                                            @if(\App\product::where('id',$show->pro_id)->first())
+                                                <li class="list-group-item list-group-item-light">Hscode: {{\App\product::where('id',$show->pro_id)->first()->hscode}}</li>
+                                            @endif
+                                            @if($row->target_price)
+                                                <li class="list-group-item list-group-item-light">Target Price: {{$row->target_price}}</li>
 
-        <div class="outerbg">
-            <div class="chatboxout">
-                @include('include.messageshow')
-                <div class="chatboxin overflow-auto">
-                    @foreach($indxx as $row)
-                        <div class="chat-container" id="yo">
-                            <div class="chat-sender msg"><strong>
+                                            @endif
+                                            @if($row->qty)
+                                                <li class="list-group-item list-group-item-light">Quantity : {{$row->qty}}</li>
+                                            @endif
+                                        </ul>
+                                        <br>
+                                        <p class="clearfix">What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</p>
 
-                                    <a type="button" onclick="usershow({{$row->user_id}})" data-toggle="modal" data-target="#showusermodal">
-                                        {{strtoupper($row->user_name)}}
-                                            <i class="fa fa-info-circle" title="Details.."></i>
-                                    </a>
-                                    </strong>
-                                <div class="chatmsg">{{$row->message}}
-                                @if($row->image)
-                                        <img style="width: 70px;height: 70px" src="{{asset('files/uploads/chat/'.$row->image)}}">
-                                @endif
+                                        @if($row->image)
+                                        <hr>
+                                        <h6> <i class="fa fa-paperclip mr-2"></i> Attachments </h6>
+                                        <div class="row">
+                                            <div class="col-sm-4 col-md-3">
 
-                                </div>
-                                <span class="time-right">{{date_format($row->created_at,'h-i-a')}}</span>
-                            </div>
+                                                <a target="_blank">
+                                                   <img class="img-thumbnail" style="width: 70px;height: 70px" src="{{asset('files/uploads/chat/'.$row->image)}}">
+                                                </a>
 
-                        </div>
-                    @endforeach
+                                            </div>
+
+                                        </div>
+                                        @endif
 
 
+                                    </div>
+                                </div> <!-- card -->
+                                @endforeach
+                            </div> <!-- end Col-9 -->
+
+                        </div><!-- End row -->
+
+                    </div>
                 </div>
-                <form action="{{route('message-sendadmin')}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="name" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" readonly>
-                        <input type="hidden" class="form-control" id="name" name="chat_id" value="{{$show->id}}" readonly>
-                        <input type="hidden" class="form-control" id="name" name="user_name" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" readonly>
-                        <input type="hidden" class="form-control" id="name" name="token_id" value="{{$show->token}}" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="msg">Message</label>
-                        <textarea class="form-control" id="msg" name="message" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="file" class="form-inline" id="image" name="image" accept="image/*">
-                    </div>
-
-                    <button type="submit" class="btn btn-success">Send</button>
-                </form>
             </div>
-
-        </div>
+        </div><!-- End row -->
         <!-- Modal start--->
         <div class="modal fade" id="showusermodal" tabindex="-1" role="dialog" aria-labelledby="showusermodalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -76,5 +103,16 @@
         </div>
         <!-- Modal end--->
     </div>
+
+
+
+
+
+
+
+
+
+
+
 
 @endsection

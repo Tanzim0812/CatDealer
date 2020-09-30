@@ -5,6 +5,7 @@
             <form class="form-group" method="post">
                 @csrf
                 <input type="hidden" name="id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
+                <img src="{{asset('files/uploads/avatar/'.\Illuminate\Support\Facades\Auth::user()->image)}}" style="width: 120px;height: 100px">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input class="form-control" type="text" name="name" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" id="name" readonly>
@@ -21,27 +22,7 @@
 
             </form>
         </div>
-        <div class="col-md-4" >
-            @if($chat!= NULL)
-                To Check your messages..
-            @foreach($chat as $ch)
-                <p>Go to Your <a href="{{route('show.user',base64_encode($ch->id))}}">Inbox</a></p>
-                @endforeach
 
-
-            @else
-                <h4>Start Chat with Admin</h4>
-                <form action="{{route('chat-start')}}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" readonly>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Start Chat with Admin</button>
-                </form>
-            @endif
-
-
-        </div>
 @endsection
 
 
