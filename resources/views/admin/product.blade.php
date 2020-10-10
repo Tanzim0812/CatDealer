@@ -50,7 +50,6 @@
                                     <label class="control-label col-sm-2">SuBCategory</label>
                                     <select class="form-control" name="subcat_id">
                                         <option class="alert-danger" disabled="true" selected="true">-Select-</option>
-
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -58,6 +57,15 @@
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="title" placeholder="Enter Product Name" name="title" autofocus>
                                         @error('title')
+                                        <strong class="text-bold text-danger">{{$message}}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="hscode">HSCODE:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="hscode" placeholder="Enter hscode" name="hscode">
+                                        @error('hscode')
                                         <strong class="text-bold text-danger">{{$message}}</strong>
                                         @enderror
                                     </div>

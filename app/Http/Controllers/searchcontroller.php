@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\product;
 use Illuminate\Http\Request;
 
 class searchcontroller extends Controller
@@ -41,7 +42,23 @@ class searchcontroller extends Controller
             return Product::where('title', 'like', '%' . $request->input('term') . '%')->get();
         }
     }
+    public function getproduct(Request $request){
 
+        $search = $request->search;
+
+        if($search == ''){
+            $employees = product::orderby('title','asc')->select('id','title')->limit(5)->get();
+        }else{
+            $employees = product::orderby('title','asc')->select('id','title')->where('title', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+
+        $response = array();
+        foreach($employees as $employee){
+            $response[] = array("value"=>$employee->id,"label"=>$employee->title);
+        }
+
+        return response()->json($response);
+    }
 
 
     /**

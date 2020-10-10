@@ -23,7 +23,7 @@ class product extends Model
         return $this->belongsTo(subcategories::class,'subcat_id');
     }
     public static function allproduct(){
-        $pro=product::get();
+        $pro=product::orderBy('title','DESC')->get();
         return $pro;
     }
 }

@@ -23,9 +23,14 @@
                                 <div class="card shadow-none mt-3 border border-light border-bottom-info" id="print-content" style="background-color: ghostwhite">
                                     <div class="card-body">
                                         <div class="media mb-3">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-3 mail-img shadow" alt="media image"  width="100" height="100">
-                                            <div class="media-body">
-                                                <span class="media-meta float-right">{{$loop->index+1}}</span>
+                                            @if(\App\User::where('id',$row->user_id)->first())
+
+                                                <img src="{{asset('files/uploads/avatar/'.\App\User::where('id',$row->user_id)->first()->image)}}" class="rounded-circle mr-3 mail-img shadow" alt="media image"  width="100" height="100">
+                                            @else
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-3 mail-img shadow" alt="media image"  width="100" height="100">
+                                            @endif
+                                              <div class="media-body">
+                                                <span class="media-meta float-right"><span class="badge badge-pill badge-info">{{$loop->index+1}}</span></span>
                                                 <h6 class="text-primary m-0">
                                                     <a type="button" onclick="usershow({{$row->user_id}})" data-toggle="modal" data-target="#showusermodal">
                                                         {{strtoupper($row->user_name)}}
@@ -53,7 +58,7 @@
                                             @endif
                                         </ul>
                                         <br>
-                                        <p class="clearfix">What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</p>
+                                        <p class="clearfix">{!! $row->message !!}</p>
 
                                         @if($row->image)
                                         <hr>
@@ -74,6 +79,33 @@
                                     </div>
                                 </div> <!-- card -->
                                 @endforeach
+                                <button style="margin-top: 2px" class="btn btn-info float-right" onclick="myFunction()">Reply <i class="fa fa-reply"></i></button>
+
+                                <div id="myDIV" style="display:none;">
+
+                                    <form method="post" action="{{route('message-sendadmin')}}" enctype="multipart/form-data">
+                                        @csrf
+
+                                        <div class="form-group">
+                                            <textarea id="editor1" class="form-control" name="message" placeholder="Type your message"></textarea>
+                                        </div>
+
+                                        <input type="hidden" class="form-control" id="name" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" readonly>
+                                        <input type="hidden" class="form-control" id="name" name="user_name" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" readonly>
+                                        <input type="hidden" class="form-control" id="name" name="chat_id" value="{{$show->id}}" readonly>
+                                        <fieldset>
+                                            <label for="image">Image</label>
+                                            <input type="file" id="image" name="image" accept="image/*">
+                                        </fieldset>
+                                        <fieldset>
+                                            <button type="submit" class="btn btn-success text-light">Send</button>
+                                        </fieldset>
+
+
+
+                                    </form>
+
+                                </div>
                             </div> <!-- end Col-9 -->
 
                         </div><!-- End row -->

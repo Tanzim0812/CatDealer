@@ -25,7 +25,7 @@
             <form class="searchbar">
                 <input type="search" placeholder="Search here.." name="search" class="searchbar-input" onkeyup="buttonUp();" required>
                  <input type="submit" class="searchbar-submit" value="GO">
-                <span class="searchbar-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <span class="searchbar-icon"><i class="fas fa-search" aria-hidden="true"></i></span>
             </form>
             </div>
     </div>

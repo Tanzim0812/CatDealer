@@ -27,7 +27,7 @@
                     @foreach($user as $row)
                     <tr>
                         <td>{{$row->name}}</td>
-                        <td><img src="{{asset('files/uploads/avatar/'.$row->image)}}" style="width: 60px;height: 50px"></td>
+                        <td><img class="img-thumbnail" src="{{asset('files/uploads/avatar/'.$row->image)}}" style="width: 60px;height: 50px;border-radius: 50%"></td>
                         <td>{{$row->issueofreg}}</td>
                         <td>
                             <input type="checkbox" data-toggle="toggle" data-on="Admin" data-off="User" data-onstyle="info" data-offstyle="secondary" id="role_status" data-id="{{$row->id}}" {{$row->role==1 ? 'checked':''}} >

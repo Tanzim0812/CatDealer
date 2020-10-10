@@ -4,10 +4,10 @@
     <div id="carousel-example-1z" class="carousel slide" style="border-top: 2px solid grey" data-ride="carousel">
         <div id="tooplate_middle">
             <div id="slider">
-                <a href="#" style="width: 1100px"><img src="{{asset('files/images/slideshow/titan.jpg')}}"  alt="nature 1" title="Suspendisse quis velit ac nisl ultrices tristique a eu velit." /></a>
-                <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 2" title="Fusce eget tellus eget felis ultrices volutpat et vitae mauris." /></a>
-                <a href="#"><img src="{{asset('files/images/slideshow/bluejuta.jpg')}}" alt="nature 3" title="Duis non est nec dui tincidunt pulvinar lacinia vel quam." /></a>
-                <a href="#"><img src="{{asset('files/images/slideshow/redjuta.jpg')}}" alt="nature 4" title="Phasellus in orci eget neque tristique semper ut ac lacus." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/01.jpg')}}"  alt="nature 1" title="Suspendisse quis velit ac nisl ultrices tristique a eu velit." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/02.jpg')}}" alt="nature 2" title="Fusce eget tellus eget felis ultrices volutpat et vitae mauris." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/03.jpg')}}" alt="nature 3" title="Duis non est nec dui tincidunt pulvinar lacinia vel quam." /></a>
+                <a href="#"><img src="{{asset('files/images/slideshow/04.jpg')}}" alt="nature 4" title="Phasellus in orci eget neque tristique semper ut ac lacus." /></a>
             </div>
         </div>
     </div>
@@ -95,23 +95,18 @@
 
                                     <button type="submit">Sign In</button>
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link float-right" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
                                 </form>
+                               <br>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-google"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
                             </div>
-                            <div class="col">
-                                <a href="#" class="fb btnn">
-                                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                </a>
-                                <a href="#" class="twitter btnn">
-                                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                                </a>
-                                <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
-                                    </i> Login with Google+
-                                </a>
-                            </div>
+
 
                             <div class="clearfix"></div>
                         </div>
@@ -158,21 +153,21 @@
                                     <label>Confirm Password</label>
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
+                                    <label>Your Avatar</label>
+                                    <input type="file" class="form-control" name="image" accept="image/*">
+
+
                                     <button type="submit">Join now</button>
                                     <p>By clicking Join now, you agree to Cat Dealer User Agreement, Privacy Policy, and Cookie Policy.</p>
                                 </form>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-google"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
+
                             </div>
-                            <div class="col">
-                                <a href="#" class="fb btnn">
-                                    <i class="fa fa-facebook fa-fw"></i> SignUp with Facebook
-                                </a>
-                                <a href="#" class="twitter btnn">
-                                    <i class="fa fa-twitter fa-fw"></i> SignUp with Twitter
-                                </a>
-                                <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
-                                    </i> SignUp with Google+
-                                </a>
-                            </div>
+
+
                             <div class="clearfix"></div>
                         </div>
                     </div>

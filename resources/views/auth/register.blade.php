@@ -95,23 +95,18 @@
 
                                     <button type="submit">Sign In</button>
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link float-right" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
                                 </form>
+                               <br>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-google"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
                             </div>
-                            <div class="col">
-                                <a href="#" class="fb btnn">
-                                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                </a>
-                                <a href="#" class="twitter btnn">
-                                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                                </a>
-                                <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
-                                    </i> Login with Google+
-                                </a>
-                            </div>
+
 
                             <div class="clearfix"></div>
                         </div>
@@ -161,21 +156,18 @@
                                     <label>Your Avatar</label>
                                     <input type="file" class="form-control" name="image" accept="image/*">
 
+
                                     <button type="submit">Join now</button>
                                     <p>By clicking Join now, you agree to Cat Dealer User Agreement, Privacy Policy, and Cookie Policy.</p>
                                 </form>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-google"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
+
                             </div>
-                            <div class="col">
-                                <a href="#" class="fb btnn">
-                                    <i class="fa fa-facebook fa-fw"></i> SignUp with Facebook
-                                </a>
-                                <a href="#" class="twitter btnn">
-                                    <i class="fa fa-twitter fa-fw"></i> SignUp with Twitter
-                                </a>
-                                <a href="#" class="google btnn"><i class="fa fa-google fa-fw">
-                                    </i> SignUp with Google+
-                                </a>
-                            </div>
+
+
                             <div class="clearfix"></div>
                         </div>
                     </div>

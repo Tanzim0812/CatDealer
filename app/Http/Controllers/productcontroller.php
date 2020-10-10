@@ -53,6 +53,7 @@ public function getsubcat($id){
         $product->previous_price = $request->previous_price;
         $product->offer_price = $request->offer_price;
         $product->qty = $request->qty;
+        $product->hscode = $request->hscode;
 
         if ($request->hasFile('image')){
         $file=$request->file('image');
@@ -63,14 +64,9 @@ public function getsubcat($id){
 
     }
 
-        $i=1;
-        $str="0123456789";
-        $str=str_shuffle($str);
-        $str=substr($str,0,7);
-        //$strr=time().$str;
-        $strr=$str.$i;
-        $product->hscode = $strr;
-        $i++;
+
+
+
 
         //dd($product);
         $product->save();

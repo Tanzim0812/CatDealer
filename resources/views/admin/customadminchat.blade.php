@@ -6,6 +6,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
+
                         <div class="row">
                             <!-- Right Sidebar -->
                             <div class="col-lg-9 col-md-8">
@@ -29,7 +30,7 @@
                                                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-3 mail-img shadow" alt="media image"  width="100" height="100">
                                                 @endif
                                                     <div class="media-body">
-                                                    <span class="media-meta float-right">{{$loop->index+1}}</span>
+                                                    <span class="media-meta float-right"><span class="badge badge-pill badge-info">{{$loop->index+1}}</span></span>
                                                     <h6 class="text-primary m-0">
                                                         <a type="button" onclick="usershow({{$row->user_id}})" data-toggle="modal" data-target="#showusermodal">
                                                             {{strtoupper($row->user_name)}}
@@ -57,7 +58,7 @@
                                                 @endif
                                             </ul>
                                             <br>
-                                            <p class="clearfix">What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</p>
+                                            <p class="clearfix">{!! $row->message !!}</p>
 
                                             @if($row->image)
                                                 <hr>
@@ -74,18 +75,81 @@
                                                 </div>
                                             @endif
 
-
                                         </div>
                                     </div> <!-- card -->
                                 @endforeach
-                            </div> <!-- end Col-9 -->
+                                <button style="margin-top: 2px" class="btn btn-info float-right" onclick="myFunction()">Reply <i class="fa fa-reply"></i></button>
+                                @error('message')
+                                <strong class="text-bold text-danger">{{$message}}</strong>
+                                @enderror
+                                <div id="myDIV" style="display:none;">
+
+                                    <form method="post" action="{{route('message-sendadmin')}}" enctype="multipart/form-data">
+                                        @csrf
+
+                                        <div class="form-group">
+                                            <textarea id="editor1" class="form-control" name="message" placeholder="Type your message" required></textarea>
+                                            @error('message')
+                                            <strong class="text-bold text-danger">{{$message}}</strong>
+                                            @enderror
+                                        </div>
+
+                                        <input type="hidden" class="form-control" id="name" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" readonly>
+                                        <input type="hidden" class="form-control" id="name" name="user_name" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" readonly>
+                                        <input type="hidden" class="form-control" id="name" name="chat_id" value="{{$show->id}}" readonly>
+                                        <fieldset>
+                                            <label for="image">Image</label>
+                                            <input type="file" id="image" name="image" accept="image/*">
+                                        </fieldset>
+                                        <fieldset>
+                                            <button type="submit" class="btn btn-success text-light">Send</button>
+                                        </fieldset>
+
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <!-- end Col-9 -->
+                            <div class="col-md-3">
+                                @foreach($indxx as $row)
+                                <div class="sidebar-item">
+                                    <div class="make-me-sticky">
+                                        <ul class="list-group">
+                                            @if($row->pro_name)
+                                                <li class="list-group-item list-group-item-light">Product Name : {{$row->pro_name}}</li>
+                                            @endif
+                                            @if(\App\product::where('id',$show->pro_id)->first())
+                                                <li class="list-group-item list-group-item-light">Hscode: {{\App\product::where('id',$show->pro_id)->first()->hscode}}</li>
+                                            @endif
+                                            @if($row->target_price)
+                                                <li class="list-group-item list-group-item-light">Target Price: {{$row->target_price}}</li>
+
+                                            @endif
+                                            @if($row->qty)
+                                                <li class="list-group-item list-group-item-light">Quantity : {{$row->qty}}</li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
 
                         </div><!-- End row -->
 
+
                     </div>
+
                 </div>
             </div>
+
+
         </div><!-- End row -->
+
+
+
         <!-- Modal start--->
         <div class="modal fade" id="showusermodal" tabindex="-1" role="dialog" aria-labelledby="showusermodalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

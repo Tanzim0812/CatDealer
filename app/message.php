@@ -27,7 +27,7 @@ class message extends Model
     }
 
     public static function chatmsgg(){
-        $id=Auth::user()->id;
+
         $showchat=userchat::orderBy('id','DESC')->limit(4)->get();
         return $showchat;
     }

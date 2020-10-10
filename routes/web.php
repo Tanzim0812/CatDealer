@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('website.home');
 });
+
+
 Route::middleware(['User','auth'])->group(function () {
 Route::get('/userdashboard', 'sitecontroller@index')->name('userdashboard');
 Route::get('/userprofile', 'sitecontroller@userpro')->name('userprofile');
@@ -27,14 +29,20 @@ Route::post('/messageSend', 'chatcontroller@store')->name('message-send');
 Route::get('/userchatshow/{id}', 'chatcontroller@userchatshow')->name('chat.show.user');
 Route::get('/showuser/{id}', 'chatcontroller@showuser')->name('show.user');
 Route::get('/customeruserchat/{id}', 'chatcontroller@cusshowuser')->name('cusshow.user');
+Route::get('/deletechatuser/{id}', 'chatcontroller@destroy')->name('chat.user.del');
+
 
 /* search */
-Route::get('search', 'searchcontroller@index')->name('search');
+Route::get('searchpro', 'sitecontroller@search')->name('search');
 Route::get('autocomplete', 'searchcontroller@getAutocompleteData')->name('autocomplete');
 
-});
-Auth::routes();
+Route::get('/products/getproducts','searchcontroller@getproduct')->name('products.getproducts');
+Route::get('/seen-status/{id}/{seen_status}','sitecontroller@seen_status')->name('seen-status');
 
+Route::post('/userdashboard-update', 'sitecontroller@update')->name('user.update');
+});
+
+Auth::routes();
 Route::middleware(['Admin','auth'])->group(function (){
 Route::get('/admin', 'HomeController@index')->name('admin');
 /* Category */
@@ -59,7 +67,6 @@ Route::get('/product-show/{id}','productcontroller@show')->name('product-show');
 Route::post('/updateproduct', 'productcontroller@update')->name('update-product');
 Route::get('list/getsubcat/{id}','productcontroller@getsubcat')->name('getsubcat');
 Route::get('/product-status/{id}/{product_status}','productcontroller@status')->name('product-status');
-Route::get('/role-status/{id}/{role_status}','HomeController@role_status')->name('role-status');
 
 /* message */
 Route::get('/messageadmin', 'chatcontroller@indexadmin')->name('message-admin');
@@ -73,5 +80,7 @@ Route::get('/customreply/{id}', 'chatcontroller@customreply')->name('reply.custo
 /* user */
 Route::get('/manageuser','HomeController@manageuser')->name('manage.user');
 Route::get('/deleteuser/{id}', 'HomeController@destroy')->name('del-user');
+Route::get('/role-status/{id}/{role_status}','HomeController@role_status')->name('role-status');
+
 
 });

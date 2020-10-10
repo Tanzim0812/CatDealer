@@ -49,11 +49,15 @@ class chatcontroller extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'message'=>'required'
+        ]);
         $send=new message();
         $send->user_id=$request->user_id;
         $send->user_name=$request->user_name;
         $send->chat_id=$request->chat_id;
         $send->pro_name=$request->pro_name;
+        $send->newpro_name=$request->newpro_name;
         $send->target_price=$request->target_price;
         $send->qty=$request->qty;
         $send->message=$request->message;
@@ -65,12 +69,16 @@ class chatcontroller extends Controller
             $file->move('files/uploads/chat/',$filename);
             $send->image = $filename;
         }
+
         $send->save();
         Session::flash('msgsend','Message Has Been Sent');
-        return back();
+        return redirect()->route('usermessage');
     }
     public function storeadmin(Request $request)
     {
+        $request->validate([
+            'message'=>'required'
+        ]);
         $send=new message();
         $send->user_id=$request->user_id;
         $send->user_name=$request->user_name;
@@ -162,8 +170,8 @@ class chatcontroller extends Controller
     }
     public function cusshowuser($id)
     {
-        $show=userchat::find($id);
-        $indxx=message::where('chat_id',$id)->get();
+        $show=userchat::find(base64_decode($id));
+        $indxx=message::where('chat_id',base64_decode($id))->get();
         return view('website.customuserchat',compact('show','indxx'));
     }
 
@@ -205,6 +213,9 @@ class chatcontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete= userchat::find(base64_decode($id));
+        $delete->delete();
+        Session::flash('delete','Successfully Deleted!!');
+        return back();
     }
 }

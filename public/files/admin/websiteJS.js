@@ -131,7 +131,7 @@ $('body').on('change', '#product_status', function () {
 
 });
 
-//change status of product
+//change status of user
 $('body').on('change', '#role_status', function () {
     var id = $(this).attr('data-id');
     if (this.checked) {

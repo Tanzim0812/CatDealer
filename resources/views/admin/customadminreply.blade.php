@@ -15,7 +15,10 @@
                 <h5 class="text-center">Drop User a reply on his inquiry</h5>
 
                         <div class="form-group">
-                            <textarea id="editor1" class="form-control" name="message" placeholder="Type your message"></textarea>
+                            <textarea id="editor1" class="form-control" name="message" placeholder="Type your message" required></textarea>
+                            @error('message')
+                            <strong class="text-bold text-danger">{{$message}}</strong>
+                            @enderror
                         </div>
 
                         <input type="hidden" class="form-control" id="name" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" readonly>
